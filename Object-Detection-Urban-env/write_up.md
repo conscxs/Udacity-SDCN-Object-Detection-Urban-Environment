@@ -8,7 +8,10 @@ Object detection technique is one of the imperative system for autonomous drivin
 
 ### Dataset analysis
 
-As a first step we need to [download and process the dataset](README.md#download-and-process-the-data) to get necessary information for object detections in camera images. "tfrecord" format contains the image being resized to 640x640 and the bounding box information. The function of randomly displaying 10 images, as shown below, is implemented to check whether the image associated its corresponding bounding boxes and class labels are presented correctly.
+As a first step we need to [download and process the dataset](README.md#download-and-process-the-data) to get necessary information for object detections in camera images. "tfrecord" format contains the image being resized to 640x640 and the bounding box information. The `display_instances´ is the function for randomly displaying 10 images with shuffle func. usage, as shown below, is implemented to check whether the images are associated with their corresponding bounding boxes and class labels are presented correctly.
+
+<img src="images/udacity.drawio.png" width="400">
+<hr>
 
 As a second step, we take 10000 images from dataset for analyzing the the number of objects for each class, the number of bounding boxes, etc.  
 
@@ -27,4 +30,4 @@ Waymo open dataset have similar characteristics (number of object for each class
 
 ### Reference experiment (Experiment)
 
-We perform the transfer learning using [SSD_ResNet50 model](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz) with the [default pipeline configuration](./Object-Detection-Urban-env/pipeline.config). 
+We perform the transfer learning using [SSD_ResNet50 model](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz) with the [default pipeline configuration](/pipeline.config). 
