@@ -60,9 +60,9 @@ There are some other options in pipeline_config that may potentially improve the
 
 The images below shows the different trainings and evaluations. After the trained model is exported, we can perform object detection with the model on driving scenes stored in the test set using Animations.gif or animations.mp4. Thus the object detection results are shown in the video. 
 
-<img src="images/udacity.drawio.png" width="400">
+<img src="images/final_loss_tf_board.png" width="1080">
 <hr>
-<img src="images/udacity.drawio.png" width="400">
+
+<img src="images/training_loss.png" width="1080">
 <hr>
-<img src="images/udacity.drawio.png" width="400">
-<hr>
+
