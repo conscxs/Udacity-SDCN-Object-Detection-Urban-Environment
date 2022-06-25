@@ -14,7 +14,7 @@ As a second step, we take 10000 images from dataset for analyzing the the number
 
 In the image shown below, we can see data distribution amon the classes are not evenly distributen. This can be because of there will be more number of `cars` than `pedestrian` and `cyclist` in the urban scenario. The total number of `pedestrian` and `cyclist` for this training a model may not be sufficient.
 
-<img src="Object-Detection-Urban-env/images/distribution_analysis.png" width="400">
+<img src="images/distribution_analysis.png" width="400">
 <hr>
 
 
