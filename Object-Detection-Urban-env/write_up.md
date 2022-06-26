@@ -30,27 +30,22 @@ Waymo open dataset have similar characteristics (number of object for each class
 
 ### Reference experiment (Experiment)
 
-We perform the transfer learning using [SSD_ResNet50 model](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz) with the default `pipeline.config` as an intitail experiment. 
+We perform the transfer learning using [SSD_ResNet50 model](http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz) with the default `pipeline.config` as an intitail experiment with no modification made to data augumentation options as shown in the image below. 
 
-#### Experiment 1
-
-The processing operations on images are added in data augmentation part in [pipeline_config](./experiments/experiment_1/pipeline.config):
-
-* Randomly convert the rgb image to the gray image
-* Randomly scale the value of all pixels between the defined range
-* Randomly distort RGB value
-* Randomly decide jpeg quality between the defined range
-
-Since the baseline config already has randomly horizontal flipping and randomly image cropping, manipulating pixel values may have better chances to improve the model. The following figures showed the difference in the Classification Loss between training (0.1697) and evaluation (0.3038) getting closer, and the DetectionBoxes_Precision as well as Recall have improvements comparing to the baseline results.
+<img src="images/config.png" width="300">
+<hr>
 
 #### Experiment 2
 
 The processing operations on images are added in data augmentation 
 
-* Randomly convert the rgb image to the gray image
+* Convert the rgb image to the gray image
 * Randomly adjust image brightness
 * Randomly change hue value
 * Randomly change saturation with the defined range
+
+<img src="images/new_config.png" width="300">
+<hr>
 
 ### Discussion
 
@@ -58,7 +53,9 @@ There are some other options in pipeline_config that may potentially improve the
 
 ## Results
 
-The images below shows the different trainings and evaluations. After the trained model is exported, we can perform object detection with the model on driving scenes stored in the test set using Animations.gif or animations.mp4. Thus the object detection results are shown in the video. 
+The images below shows the different trainings and evaluations. Overall, the training and validation loss of augmented model are decreased in comparison with the losses of reference model. Better model performance is observed in the precison and recall curve. The model performance can be improved by using further measures, such as tuning optimization parameter or using other pretrained neural network as baseline. Moreover, the imbalance of classes has to be made by adding more samples of pedestrians and cyclists. The improvement of dataset plays an important role in the loss curves and bring better classification performance.
+
+After the trained model is exported, we can perform object detection with the model on driving scenes stored in the test set using Animations.gif or animations.mp4. Thus the object detection results are shown in the video. 
 
 <img src="images/final_loss_tf_board.png" width="1080">
 <hr>
